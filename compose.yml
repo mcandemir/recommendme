@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: recommendme
+    build:
+      context: .
+    image: mcandemir/recommendme
+
+    env_file: .env
+
+    ports:
+      - 8502:8502

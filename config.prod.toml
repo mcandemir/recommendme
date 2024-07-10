@@ -1,0 +1,9 @@
+[server]
+port=8502
+runOnSave=true
+headless=true
+baseUrlPath="recommendme" #Change path here to same on nginx
+
+[logger]
+level="debug"
+messageFormat = "%(asctime)s %(message)s"
