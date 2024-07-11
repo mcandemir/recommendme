@@ -23,6 +23,11 @@ def fetch_omdb_data() -> list[dict]:
         progress_bar.progress(i * 10, text=f'Fetching awesome posters.. ({i}/{len(st.session_state["openai_responses"])})')
         time.sleep(1.2)
     progress_bar.empty()
+    with open('logs/omdb_responses.txt', 'a') as f:
+        f.write(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+        f.write('\n')
+        f.writelines(omdb_responses)
+        f.write('\n\n\n')
     return omdb_responses
 
 
@@ -76,11 +81,6 @@ def fetch_openai_data() -> dict:
         f.write('\n')
         f.write(completion_text)
         f.write('\n\n\n')
-    
-    with open('logs/omdb_responses.txt', 'a') as f:
-        f.write(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
-        f.write('\n')
-        f.write(json.dumps(st.session_state['omdb_responses']))
-        f.write('\n\n\n')
+
     
     return openai_responses
