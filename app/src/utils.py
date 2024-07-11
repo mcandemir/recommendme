@@ -4,6 +4,7 @@ import streamlit as st
 import requests
 import datetime
 import time
+import json
 from openai import OpenAI
 
 
@@ -74,6 +75,12 @@ def fetch_openai_data() -> dict:
         f.write(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
         f.write('\n')
         f.write(completion_text)
+        f.write('\n\n\n')
+    
+    with open('logs/omdb_responses.txt', 'a') as f:
+        f.write(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+        f.write('\n')
+        f.write(json.dumps(st.session_state['omdb_responses']))
         f.write('\n\n\n')
     
     return openai_responses

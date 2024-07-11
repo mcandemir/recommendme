@@ -92,9 +92,12 @@ def component_recommendations():
                 #     st.warning(f'movie {st.session_state["input_list"][i]} not found')                
 
                 with st.container():
-                    st.image(st.session_state['omdb_responses'][i]['Poster'])
-                    st.write(st.session_state['openai_responses'][i]['title'])
-                    st.write(st.session_state['openai_responses'][i]['desc'])
+                    try:
+                        st.image(st.session_state['omdb_responses'][i]['Poster'])
+                        st.write(st.session_state['openai_responses'][i]['title'])
+                        st.write(st.session_state['openai_responses'][i]['desc'])
+                    except KeyError:
+                        continue
 
                     
             st.session_state['recommend'] = False
