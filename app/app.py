@@ -8,7 +8,7 @@ from src.pages import HomePage
 
 
 # page config
-st.set_page_config(page_title="My Project", layout="centered", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="RecommendMe", layout="centered", initial_sidebar_state="collapsed")
 
 
 # set session states
