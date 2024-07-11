@@ -23,7 +23,7 @@ def fetch_omdb_data() -> list[dict]:
         omdb_responses_logs.append(r.text)
         omdb_responses.append(r.json())
         progress_bar.progress(i * 10, text=f'Fetching awesome posters.. ({i}/{len(st.session_state["openai_responses"])})')
-        time.sleep(1.2)
+        time.sleep(1.5)
     progress_bar.empty()
     with open('logs/omdb_responses.txt', 'a') as f:
         f.write(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))

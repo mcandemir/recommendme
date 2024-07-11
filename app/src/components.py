@@ -96,7 +96,7 @@ def component_recommendations():
                         st.image(st.session_state['omdb_responses'][i]['Poster'])
                         st.write(st.session_state['openai_responses'][i]['title'])
                         st.write(st.session_state['openai_responses'][i]['desc'])
-                    except KeyError:
+                    except:
                         continue
 
                     
