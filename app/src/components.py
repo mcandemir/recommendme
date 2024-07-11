@@ -99,7 +99,7 @@ def component_recommendations():
             st.session_state['recommend'] = False
     
     else:
-        st.markdown('#### Waiting for your awesom-favorite movies..')
+        st.markdown('#### Waiting for your awesome-favorite movies..')
 
     
 
