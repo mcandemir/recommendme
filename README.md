@@ -10,3 +10,4 @@ Always reachable at: https://www.mehmetcandemir.com/recommendme
 Frontend and Backend: Python-Streamlit
 Generative Model: GPT3.5
 Deployment: Nginx & Docker
+Movie Posters: OMDB
