@@ -20,7 +20,7 @@ def fetch_omdb_data() -> list[dict]:
         title = st.session_state['openai_responses'][i]['title']
         title = title.replace(' ', '+')
         r = send_request_to_omdb_api(title)
-        omdb_responses_logs.append(r)
+        omdb_responses_logs.append(r.text)
         omdb_responses.append(r.json())
         progress_bar.progress(i * 10, text=f'Fetching awesome posters.. ({i}/{len(st.session_state["openai_responses"])})')
         time.sleep(1.2)
