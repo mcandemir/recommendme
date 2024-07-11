@@ -6,6 +6,7 @@ every component is a piece of row of your application
 
 import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
+import streamlit.components.v1 as st_components_v1
 from src import callbacks
 from src import utils
 
@@ -100,6 +101,13 @@ def component_recommendations():
     
     else:
         st.markdown('#### Waiting for your awesome-favorite movies..')
+    
+    
+def component_portfolio():
+    st.write('Made by [Mehmet Can DEMIR](<https://www.mehmetcandemir.com/>)')
+    st.write('Checkout my other projects!')
+    with st.expander('Click to take a quick look at my website.'):
+        st_components_v1.iframe('https://www.mehmetcandemir.com#mywork', height=1200, scrolling=True)
 
     
 

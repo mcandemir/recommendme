@@ -25,5 +25,6 @@ class HomePage():
         components.component_input_list()
         components.component_recommend_button()
         components.component_recommendations()
+        components.component_portfolio()
 
 
