@@ -14,11 +14,13 @@ OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 
 def fetch_omdb_data() -> list[dict]:
     omdb_responses = []
+    omdb_responses_logs = []
     progress_bar = st.progress(0, text='Fetching awesome posters..',)
     for i in range(len(st.session_state['openai_responses'])):
         title = st.session_state['openai_responses'][i]['title']
         title = title.replace(' ', '+')
         r = send_request_to_omdb_api(title)
+        omdb_responses_logs.append(r)
         omdb_responses.append(r.json())
         progress_bar.progress(i * 10, text=f'Fetching awesome posters.. ({i}/{len(st.session_state["openai_responses"])})')
         time.sleep(1.2)
@@ -26,7 +28,7 @@ def fetch_omdb_data() -> list[dict]:
     with open('logs/omdb_responses.txt', 'a') as f:
         f.write(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
         f.write('\n')
-        f.writelines(omdb_responses)
+        f.writelines(omdb_responses_logs)
         f.write('\n\n\n')
     return omdb_responses
 
